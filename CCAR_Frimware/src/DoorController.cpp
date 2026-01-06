@@ -11,7 +11,6 @@ void DoorController::begin() {
     // ESP32는 타이머 할당이 필요하므로 setPeriodHertz 권장 (선택사항이나 안정성 위해)
     doorServo.setPeriodHertz(50); 
     doorServo.attach(servoPin, 500, 2400); 
-    
     // 초기 상태: 잠금 (0도)
     lock();
 }
