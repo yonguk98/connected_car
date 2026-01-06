@@ -12,7 +12,6 @@ void DoorController::begin() {
     doorServo.setPeriodHertz(50); 
     doorServo.attach(servoPin, 500, 2400); 
     
-    
     // 초기 상태: 잠금 (0도)
     lock();
 }
