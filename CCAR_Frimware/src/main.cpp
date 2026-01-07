@@ -11,7 +11,7 @@
 DoorController myCarDoor(SERVO_PIN, LED_PIN);
 
 void setup() {
-    WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); // 브라운아웃 감지 비활성화
+    // Keep default brownout detection enabled for safe operation under low voltage.
 
     Serial.begin(115200);
 
