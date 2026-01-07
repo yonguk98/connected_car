@@ -22,6 +22,9 @@ private:
     unsigned long lastUpdateTime; // 마지막 업데이트 시간
     const int UPDATE_INTERVAL = 10; // 업데이트 간격 (ms)
     const int STEP_SIZE = 2;        // 한 번에 이동할 각도
+    // Servo pulse width constants (in microseconds)
+    static constexpr int SERVO_MIN_PULSE_WIDTH = 500;   // Minimum pulse width for 0 degrees
+    static constexpr int SERVO_MAX_PULSE_WIDTH = 2400;  // Maximum pulse width for 180 degrees
 
 public:
     // 생성자: 핀 번호를 받아서 초기화

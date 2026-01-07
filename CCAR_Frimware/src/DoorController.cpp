@@ -15,7 +15,7 @@ void DoorController::begin() {
     // ESP32Servo 라이브러리를 이용해 핀 연결
     // ESP32는 타이머 할당이 필요하므로 setPeriodHertz 권장 (선택사항이나 안정성 위해)
     doorServo.setPeriodHertz(50); 
-    doorServo.attach(servoPin, 500, 2400); 
+    doorServo.attach(servoPin, SERVO_MIN_PULSE_WIDTH, SERVO_MAX_PULSE_WIDTH); 
 
     // LED 핀 설정 추가
     pinMode(ledPin, OUTPUT);
