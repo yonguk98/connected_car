@@ -3,9 +3,10 @@
 
 // 서보 모터를 연결할 핀 번호 (GPIO 13 추천)
 #define SERVO_PIN 13
+#define LED_PIN 2  // 상태 표시용 LED 핀 번호 (GPIO 2 추천)
 
 // DoorController 객체 생성 (인스턴스화)
-DoorController myCarDoor(SERVO_PIN);
+DoorController myCarDoor(SERVO_PIN, LED_PIN);
 
 void setup() {
     Serial.begin(115200);

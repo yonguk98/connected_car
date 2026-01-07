@@ -7,11 +7,12 @@ class DoorController {
 private:
     Servo doorServo;
     int servoPin;
+    int ledPin;
     bool isOpen; // 현재 상태 저장 (True: 열림, False: 잠김)
 
 public:
     // 생성자: 핀 번호를 받아서 초기화
-    DoorController(int pin);
+    DoorController(int servoPin, int ledPin);
 
     // 하드웨어 초기화 (setup에서 호출)
     void begin();
