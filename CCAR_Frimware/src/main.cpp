@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include "DoorController.h"
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
 
 // 서보 모터를 연결할 핀 번호 (GPIO 13 추천)
 #define SERVO_PIN 13
@@ -9,8 +11,12 @@
 DoorController myCarDoor(SERVO_PIN, LED_PIN);
 
 void setup() {
+    WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); // 브라운아웃 감지 비활성화
+
     Serial.begin(115200);
     
+    Serial.println("\n\n!!! SYSTEM REBOOTED !!!\n\n");
+
     Serial.println(">>> [System] Initializing Door Controller...");
     myCarDoor.begin();
     

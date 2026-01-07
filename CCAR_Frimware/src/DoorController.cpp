@@ -35,6 +35,10 @@ void DoorController::unlock() {
 }
 
 void DoorController::lock() {
+    // [핵심 수정] 이미 잠겨있으면(false) 아무것도 하지 않고 함수 종료!
+    if (!this->isOpen) {
+        return;
+    }
     // 닫을 때도 천천히
     for (int pos = 90; pos >= 0; pos -= 2) { 
         doorServo.write(pos);
