@@ -22,6 +22,9 @@ void setup() {
 }
 
 void loop() {
+    // DoorController 상태 머신 업데이트 (비차단 서보 제어)
+    myCarDoor.update();
+    
     // 시리얼 모니터에서 입력이 들어오면 실행
     if (Serial.available()) {
         char cmd = Serial.read(); // 한 글자 읽기
