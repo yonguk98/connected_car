@@ -8,7 +8,7 @@ private:
     Servo doorServo;
     int servoPin;
     int ledPin;
-    bool isOpen; // 현재 상태 저장 (True: 열림, False: 잠김)
+    bool isDoorOpen; // 문 상태 저장 (true: 열림, false: 잠김)
     
     // 비차단 제어를 위한 상태 머신
     enum State {
