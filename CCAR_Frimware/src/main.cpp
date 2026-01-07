@@ -14,8 +14,6 @@ void setup() {
     WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); // 브라운아웃 감지 비활성화
 
     Serial.begin(115200);
-    
-    Serial.println("\n\n!!! SYSTEM REBOOTED !!!\n\n");
 
     Serial.println(">>> [System] Initializing Door Controller...");
     myCarDoor.begin();
