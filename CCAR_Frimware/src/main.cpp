@@ -28,21 +28,26 @@ void loop() {
     // 시리얼 모니터에서 입력이 들어오면 실행
     if (Serial.available()) {
         char cmd = Serial.read(); // 한 글자 읽기
+        bool validCmd = false;
         
         if (cmd == '1') {
             Serial.println("Command: UNLOCK -> Door Opening...");
             myCarDoor.unlock();
+            validCmd = true;
         } 
         else if (cmd == '0') {
             Serial.println("Command: LOCK -> Door Closing...");
             myCarDoor.lock();
+            validCmd = true;
         }
         
-        // 현재 상태 출력 (피드백 확인)
-        if (myCarDoor.getStatus()) {
-            Serial.println("Current Status: [ OPEN ]");
-        } else {
-            Serial.println("Current Status: [ LOCKED ]");
+        // 현재 상태 출력 (피드백 확인) - 인식된 명령에 대해서만 출력
+        if (validCmd) {
+            if (myCarDoor.getStatus()) {
+                Serial.println("Current Status: [ OPEN ]");
+            } else {
+                Serial.println("Current Status: [ LOCKED ]");
+            }
         }
     }
 }
